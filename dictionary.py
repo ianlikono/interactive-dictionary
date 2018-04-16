@@ -9,7 +9,7 @@ def translate(word):
     if word in data:
         return data[word]
     elif len(get_close_matches(word, data.keys())) > 0:
-        yn = input("Did You Mean %s instead? Enter Y if yes or N if no" %
+        yn = input("Did You Mean %s instead? Enter Y if yes or N if no " %
                    get_close_matches(word, data.keys())[0])
         yn = yn.upper()
         if yn == "Y":
@@ -25,4 +25,11 @@ def translate(word):
 
 word = input("Enter Word: ")
 
-print(translate(word))
+answer = translate(word)
+
+if type(answer) == list:
+    for item in answer:
+        print(item)
+
+else:
+    print(answer)
